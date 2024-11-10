@@ -5,7 +5,7 @@ import { SiSpringboot, SiMongodb, SiDocker, SiJavascript, SiReact, SiLinux, SiPo
 function About() {
   return (
     <>
-      <div className="flex flex-row items-center justify-center h-screen text-black shadow-lg">
+      <div id="about" className="flex flex-row items-center justify-center h-screen text-black shadow-lg">
         {/* Image on the left */}
         <div className="w-1/3 flex justify-center">
           <img
@@ -26,12 +26,11 @@ function About() {
             Let's connect and collaborate on exciting projects!
           </p>
           <div className="mt-6">
-            <Link
-              href="/contact"
+            <a href="#contact"
               className="bg-yellow-400 text-black px-6 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition-colors duration-300 shadow-md hover:shadow-lg"
             >
               Contact Me
-            </Link>
+            </a>
           </div>
         </div>
       </div>

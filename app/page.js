@@ -14,14 +14,14 @@ const Navbar = ({ params }) => {
               {/* Links */}
               <div className="hidden md:flex text-gray-600 ml-10 space-x-3">
                 <a href="#" className="hover:bg-gray-300 px-2 py-1 m-2 rounded-lg">Home</a>
-                <a href="#" className="hover:bg-gray-300 px-2 py-1 m-2 rounded-lg">About</a>
-                <a href="#" className="hover:bg-gray-300 px-2 py-1 m-2 rounded-lg">Project</a>
-                <a href="#" className="hover:bg-gray-300 px-2 py-1 m-2 rounded-lg">Contact</a>
+                <a href="#about" className="hover:bg-gray-300 px-2 py-1 m-2 rounded-lg">About</a>
+                <a href="#project" className="hover:bg-gray-300 px-2 py-1 m-2 rounded-lg">Project</a>
+                <a href="#contact" className="hover:bg-gray-300 px-2 py-1 m-2 rounded-lg">Contact</a>
               </div>
             </div>
           </div>
         </nav>
-    <div className="bg-gradient-to-b from-sky-100 to-white via-sky-100/30 to-white/70 fixed inset-0 -z-10"></div>
+    <div className="bg-gradient-to-b from-sky-100 to-white via-sky-100/30 fixed inset-0 -z-10"></div>
       <div className=" h-screen pb-2 ">
         {/* Fixed Navbar */}
        

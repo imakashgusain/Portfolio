@@ -31,7 +31,7 @@ function Project() {
   return (
     <>
       {/* Add padding-top to prevent overlap with navbar */}
-      <div className="pt-16 flex flex-col items-center justify-center min-h-screen  text-black">
+      <div id="project" className="pt-16 flex flex-col items-center justify-center min-h-screen  text-black">
         {/* Title and Description */}
         <div className="w-full text-center px-10 mb-10">
           <h1 className="text-5xl font-extrabold mb-4 tracking-widest uppercase hover:text-yellow-400 transition-colors duration-300">

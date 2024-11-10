@@ -2,7 +2,7 @@ import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 
 const Contact = () => {
   return (
-    <div className="min-h-screen  text-black flex flex-col justify-center items-center p-6">
+    <div id="contact" className="min-h-screen  text-black flex flex-col justify-center items-center p-6">
       <h1 className="text-5xl font-extrabold mb-6 tracking-wide text-center hover:text-yellow-400 transition-colors duration-300">Contact Me</h1>
       <div className=" rounded-lg shadow-lg p-10 w-full max-w-3xl hover:scale-110 transition-transform duration-300">
         <div className="space-y-6 ">
