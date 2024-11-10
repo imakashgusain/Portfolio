@@ -45,22 +45,19 @@ function Project() {
         {/* Project Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-5xl">
           {projects.map((project) => (
-            <div
-              key={project.id}
-              className="relative group  rounded-lg shadow-lg p-8 h-60  hover:bg-white/10 transition-transform transform hover:scale-105 duration-300 overflow-hidden"
-            >
-              {/* Project Title */}
-              <h2 className="text-3xl font-bold text-gray-800 mb-2 text-center ">
-                {project.title}
-              </h2>
-
-              {/* Project Description (Initially hidden, fully visible on hover) */}
-              <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 absolute inset-0  bg-opacity-80 flex justify-center items-center rounded-lg p-6">
-                <p className="text-gray text-lg font-medium px-6 text-center">
-                  {project.description}
-                </p>
-              </div>
-            </div>
+           <div
+  key={project.id}
+  className="relative group rounded-lg shadow-lg p-8 h-60 hover:bg-white/10 transition-all transform hover:scale-105 duration-300 overflow-hidden"
+>
+  <h2 className="text-3xl font-bold text-gray-800 mb-2 text-center">
+    {project.title}
+  </h2>
+  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 absolute inset-0 bg-black bg-opacity-80 flex justify-center items-center rounded-lg p-6">
+    <p className="text-white text-lg font-medium px-6 text-center">
+      {project.description}
+    </p>
+  </div>
+</div>
           ))}
         </div>
       </div>
