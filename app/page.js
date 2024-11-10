@@ -1,70 +1,83 @@
-import React from 'react';
-import { BsGithub, BsLinkedin, BsStackOverflow, BsInstagram, BsDownload } from 'react-icons/bs'; // Importing icons from react-icons
+"use client";
+import { BsGithub, BsLinkedin, BsStackOverflow, BsInstagram, BsDownload } from 'react-icons/bs';
 import About from './about/page';
 import Project from './project/page';
 import Contact from './contact/page';
-const Navbar = ({ params }) => {
+import React, { useState, useEffect } from 'react';
+
+const Navbar = () => {
+  const [scrolling, setScrolling] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 50) {
+        // Scrolling down
+        setScrolling(true);
+      } else {
+        // Scrolling up
+        setScrolling(false);
+      }
+      setLastScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY]);
+
   return (
-    
-    < div >
-     <nav className=" sticky top-5 w-11/12 mx-auto bg-white/30 backdrop-blur-lg shadow-lg rounded-full z-50 border border-black-500 ">
-          <div className="flex items-center justify-between">
-            {/* Left side with logo and links */}
-            <div className="flex items-center space-x-6">
-              {/* Links */}
-              <div className="hidden md:flex text-gray-600 ml-10 space-x-3">
-                <a href="#" className="hover:bg-gray-300 px-2 py-1 m-2 rounded-lg">Home</a>
-                <a href="#about" className="hover:bg-gray-300 px-2 py-1 m-2 rounded-lg">About</a>
-                <a href="#project" className="hover:bg-gray-300 px-2 py-1 m-2 rounded-lg">Project</a>
-                <a href="#contact" className="hover:bg-gray-300 px-2 py-1 m-2 rounded-lg">Contact</a>
-              </div>
-            </div>
+    <div className="bg-gray-900 text-gray-200 min-h-screen">
+      {/* Navbar */}
+     {/* <nav className="sticky top-0 w-full bg-gray-800 text-white shadow-lg z-50">  */}
+        {/* <nav className={`sticky top-0 w-full bg-white/30 backdrop-blur-lg shadow-lg rounded-full z-50 transition-all duration-300 ${scrolling ? 'translate-y-[-100%]' : ''}`}> */}
+        <nav className={`sticky top-0 w-full bg-gray-800 text-white shadow-lg z-50 transition-all duration-300 ${scrolling ? 'translate-y-[-100%]' : ''}`}>
+        <div className="flex justify-between items-center px-10 py-4">
+          <h1 className="text-2xl font-bold">Akash Singh Gusain</h1>
+          <div className="space-x-8">
+          <a href="#" className="hover:text-blue-400">Home</a>
+            <a href="#about" className="hover:text-blue-400">About</a>
+            <a href="#project" className="hover:text-blue-400">Projects</a>
+            <a href="#contact" className="hover:text-blue-400">Contact</a>
           </div>
-        </nav>
-    <div className="bg-gradient-to-b from-sky-100 to-white via-sky-100/30 fixed inset-0 -z-10"></div>
-      <div className=" h-screen pb-2 ">
-        {/* Fixed Navbar */}
-       
+        </div>
+      </nav>
 
+      {/* Hero Section */}
+      <section className="flex flex-col items-center justify-center h-screen text-center px-6">
+        <h1 className="text-5xl font-bold mb-4">Hello, I'm Akash Singh Gusain</h1>
+        <p className="text-lg mb-6">Full-Stack Developer and Tech Enthusiast</p>
+        <div className="flex gap-6 mb-6">
+          <a href="https://github.com/imakashgusain" target="_blank" aria-label="GitHub">
+            <BsGithub className="text-3xl hover:text-gray-400" />
+          </a>
+          <a href="https://www.linkedin.com/in/akash-gusain-397821178/" target="_blank" aria-label="LinkedIn">
+            <BsLinkedin className="text-3xl hover:text-blue-400" />
+          </a>
+          <a href="https://stackoverflow.com/users/12929696/akash-gusain" target="_blank" aria-label="StackOverflow">
+            <BsStackOverflow className="text-3xl hover:text-orange-400" />
+          </a>
+          <a href="https://www.instagram.com/imakashgusain/" target="_blank" aria-label="Instagram">
+            <BsInstagram className="text-3xl hover:text-pink-600" />
+          </a>
+        </div>
+        <a href="/resume.pdf" download className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-400">
+          Download Resume <BsDownload />
+        </a>
+      </section>
 
-        <div className="flex flex-col items-center justify-center h-screen text-black shadow-lg">
-          <div className='text-6xl font-bold mb-8'>
-          <span className=" text-black">I'm </span>
-          <span className=" text-blue-600"> Akash Singh Gusain.</span>
-          </div>
-     
-      <div className="flex gap-8">
-        <a href="https://github.com/imakashgusain" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-          <BsGithub className="text-5xl hover:text-black transition duration-300 ease-in-out" />
-        </a>
-        <a href="https://www.linkedin.com/in/akash-gusain-397821178/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <BsLinkedin className="text-5xl hover:text-blue-500 transition duration-300 ease-in-out" />
-        </a>
-        <a href="https://stackoverflow.com/users/12929696/akash-gusain" target="_blank" rel="noopener noreferrer" aria-label="StackOverflow">
-          <BsStackOverflow className="text-5xl hover:text-orange-400 transition duration-300 ease-in-out" />
-        </a>
-        <a href="https://www.instagram.com/imakashgusain/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <BsInstagram className="text-5xl hover:text-pink-600 transition duration-300 ease-in-out" />
-        </a>
-      </div>
-      
-      {/* Updated Resume Button with white background and black text on hover */}
-      <div className="flex text-3xl font-bold gap-8 py-5 ">
-        <a 
-          href="/resume.pdf" // The path to your resume in the public folder
-          download
-          className="bg-slate-500 text-white py-2 px-6 rounded-full flex items-center justify-center gap-2 hover:bg-white hover:text-black  font-black transition duration-300 ease-in-out"
-        >
-          Resume
-          <BsDownload className="text-xl" />
-        </a>  
-      </div>
-      </div>
-     
-      </div>
-      <About/>
-      <Project/>
-      <Contact/>
+      {/* Sections */}
+      <section id="about">
+        <About />
+      </section>
+      <section id="project">
+        <Project />
+      </section>
+      <section id="contact">
+        <Contact />
+      </section>
     </div>
   );
 };
