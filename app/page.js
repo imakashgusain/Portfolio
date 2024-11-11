@@ -75,34 +75,46 @@ const Navbar = () => {
         </h1>
 
         <div className="flex gap-6 mb-6">
-  <IconButton text="Github" color="bg-gray-800 hover:bg-gray text-white" href="https://github.com/imakashgusain">
-  
-      <BsGithub className="text-3xl" />
-  
-  </IconButton>
+          <IconButton
+            text="Github"
+            color="bg-gray-800 hover:bg-gray text-white"
+            href="https://github.com/imakashgusain"
+          >
+            <BsGithub className="text-3xl" />
+          </IconButton>
 
-  <IconButton text="Linkedin" color="bg-blue-700 hover:bg-blue-500 text-white" href="https://www.linkedin.com/in/akash-gusain-397821178/">
-    
-      <BsLinkedin className="text-3xl" />
-    
-  </IconButton>
+          <IconButton
+            text="Linkedin"
+            color="bg-blue-700 hover:bg-blue-500 text-white"
+            href="https://www.linkedin.com/in/akash-gusain-397821178/"
+          >
+            <BsLinkedin className="text-3xl" />
+          </IconButton>
 
-  <IconButton text="StackOverflow" color="bg-orange-600 hover:bg-orange-500 text-white" href="https://stackoverflow.com/users/12929696/akash-gusain">
-    
-      <BsStackOverflow className="text-3xl" />
-    
-  </IconButton>
+          <IconButton
+            text="StackOverflow"
+            color="bg-orange-600 hover:bg-orange-500 text-white"
+            href="https://stackoverflow.com/users/12929696/akash-gusain"
+          >
+            <BsStackOverflow className="text-3xl" />
+          </IconButton>
 
-  <IconButton text="Instagram" color="bg-gradient-to-r from-yellow-500 via-pink-500 to-purple-600 hover:opacity-90 text-white" href="https://www.instagram.com/imakashgusain/">
-    
-      <BsInstagram className="text-3xl" />
-    
-  </IconButton>
-</div>
+          <IconButton
+            text="Instagram"
+            color="bg-gradient-to-r from-yellow-500 via-pink-500 to-purple-600 hover:opacity-90 text-white"
+            href="https://www.instagram.com/imakashgusain/"
+          >
+            <BsInstagram className="text-3xl" />
+          </IconButton>
+        </div>
 
-<a href="/resume.pdf" download className="bg-white text-black font-bold mb-4 px-6 py-2 rounded-full hover:bg-gray-400 flex items-center gap-2">
-  Resume <BsDownload />
-</a>
+        <a
+          href="/resume.pdf"
+          download
+          className="bg-white text-black font-bold mb-4 px-6 py-2 rounded-full hover:bg-gray-400 flex items-center gap-2"
+        >
+          Resume <BsDownload />
+        </a>
       </section>
 
       {/* Sections */}
