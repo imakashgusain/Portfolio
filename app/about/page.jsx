@@ -126,7 +126,7 @@ function About() {
             ].map((tech, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center transform hover:scale-110 transition-transform"
+                className="flex flex-col items-center transform transition-all hover:scale-200 hover:rotate-3 duration-150 ease-in-out"
               >
                 <div className="text-5xl mb-2">{tech.icon}</div>
                 <span className="text-lg">{tech.name}</span>
