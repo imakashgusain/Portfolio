@@ -1,5 +1,6 @@
 "use client";
 import { BsGithub, BsLinkedin, BsStackOverflow, BsInstagram, BsDownload } from 'react-icons/bs';
+import Typewriter from 'typewriter-effect';
 import About from './about/page';
 import Project from './project/page';
 import Contact from './contact/page';
@@ -36,8 +37,20 @@ const Navbar = () => {
 
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center h-screen text-center px-6 py-20">
-        <h1 className="text-5xl font-bold mb-4">Hello, I&apos;m Akash Singh Gusain</h1>
-        <p className="text-lg mb-6">Full-Stack Developer and Tech Enthusiast</p>
+        <h1 className="text-4xl font-bold mb-4 ">
+        <p >Hello, I&apos;m </p>
+        <span className="text-yellow-400">
+        <Typewriter
+      options={{
+        strings: ["Akash Singh Gusain","Full-Stack Developer", "Tech Enthusiast"],
+        autoStart: true,
+        loop: true,
+        delay: 75,
+      }}
+    />
+    </span>
+      </h1>
+      
         <div className="flex gap-6 mb-6">
           <a href="https://github.com/imakashgusain" target="_blank" aria-label="GitHub">
             <BsGithub className="text-3xl hover:text-gray-400" />
