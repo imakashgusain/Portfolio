@@ -8,7 +8,7 @@ const Contact = () => {
         <h1 className="text-5xl font-bold text-yellow-400">Contact Me</h1>
 
         <p className="text-lg text-center leading-relaxed max-w-lg">
-          I'm open to freelance projects, collaboration, and exciting opportunities. Feel free to reach out!
+          I&apos;m open to freelance projects, collaboration, and exciting opportunities. Feel free to reach out!
         </p>
 
         <div className="w-full max-w-xl bg-gray-800 p-10 rounded-lg shadow-lg space-y-6">

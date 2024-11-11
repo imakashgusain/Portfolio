@@ -36,7 +36,7 @@ const Navbar = () => {
 
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center h-screen text-center px-6 py-20">
-        <h1 className="text-5xl font-bold mb-4">Hello, I'm Akash Singh Gusain</h1>
+        <h1 className="text-5xl font-bold mb-4">Hello, I&apos;m Akash Singh Gusain</h1>
         <p className="text-lg mb-6">Full-Stack Developer and Tech Enthusiast</p>
         <div className="flex gap-6 mb-6">
           <a href="https://github.com/imakashgusain" target="_blank" aria-label="GitHub">
