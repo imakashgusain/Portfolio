@@ -5,7 +5,7 @@ import { SiSpringboot, SiMongodb, SiDocker, SiJavascript, SiReact, SiLinux, SiPo
 
 function About() {
   return (
-    <div id="about" className="flex flex-col items-center justify-center min-h-screen text-gray-100 bg-gray-900 max-w-6xl mx-auto p-8 space-y-12">
+    <div id="about" className="flex flex-col items-center justify-center min-h-screen text-gray-100 bg-gray-900 max-w-6xl mx-auto px-8  space-y-12">
       <div className="flex flex-col md:flex-row items-center w-full gap-8">
       <Image
   src="/akash.jpg"
@@ -25,9 +25,9 @@ function About() {
         </div>
       </div>
 
-      <div className="w-full space-y-12">
+      <div className="w-full space-y-12 py-7">
         <div>
-          <h2 className="text-4xl font-bold mb-4 text-yellow-400">Education</h2>
+          <h2 className="text-4xl font-bold mb-4 text-yellow-400 ">Education</h2>
           <ul className="text-gray-300 space-y-2">
             <li>B.Tech in Computer Science, Dev Bhoomi Institute of Technology (2018-2022)</li>
             <li>HSC (12th), Kendriya Vidhyalaya Upper Camp (2018)</li>
@@ -35,15 +35,15 @@ function About() {
           </ul>
         </div>
 
-        <div>
-          <h2 className="text-4xl font-bold mb-4 text-yellow-400">Work Experience</h2>
+        <div className="py-7">
+          <h2 className="text-4xl font-bold mb-4 text-yellow-400 ">Work Experience</h2>
           <ul className="text-gray-300 space-y-2">
             <li><b>Senior Software Engineer at Gemini Solutions</b> (2021 - Present)</li>
             <li>Developed core features using Java, Spring Boot, and collaborated with teams to deliver solutions.</li>
           </ul>
         </div>
 
-        <div>
+        <div className="py-7">
           <h2 className="text-4xl font-bold mb-4 text-yellow-400 text-center">Technologies I Use</h2>
           <div className="grid grid-cols-3 md:grid-cols-5 gap-6 text-center">
             {[

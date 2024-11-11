@@ -40,7 +40,7 @@ function Project() {
   ];
 
   return (
-    <div id="project" className="min-h-screen text-gray-100 bg-gray-900 max-w-6xl mx-auto p-8 space-y-12">
+    <div id="project" className="min-h-screen text-gray-100 bg-gray-900 max-w-6xl mx-auto px-8 space-y-12">
       <h1 className="text-5xl font-bold text-center mb-12 text-yellow-400">Projects</h1>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">

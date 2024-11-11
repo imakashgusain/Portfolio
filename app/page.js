@@ -36,7 +36,7 @@ const Navbar = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center h-screen text-center px-6 py-20">
+      <section className="flex flex-col items-center justify-center h-screen text-center px-6 ">
         <h1 className="text-4xl font-bold mb-4 ">
         <p >Hello, I&apos;m </p>
         <span className="text-yellow-400">
@@ -71,13 +71,13 @@ const Navbar = () => {
       </section>
 
       {/* Sections */}
-      <section id="about" className="px-6 py-20">
+      <section id="about" >
         <About />
       </section>
-      <section id="project" className="px-6 py-20">
+      <section id="project">
         <Project />
       </section>
-      <section id="contact" className="px-6 py-20">
+      <section id="contact">
         <Contact />
       </section>
     </div>
