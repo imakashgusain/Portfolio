@@ -12,6 +12,8 @@ import Project from "./project/page";
 import Contact from "./contact/page";
 import React, { useState, useEffect } from "react";
 import IconButton from "./animation/page";
+import { motion } from "framer-motion"; // Import motion only (no need for useInView here)
+import { useInView } from "react-intersection-observer"; // Import the correct hook
 
 const Navbar = () => {
   const [scrolling, setScrolling] = useState(false);
@@ -27,13 +29,30 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  // Correct use of useInView for each section
+  const { ref: refAbout, inView: inViewAbout } = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
+  const { ref: refProject, inView: inViewProject } = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
+  const { ref: refContact, inView: inViewContact } = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
+
   return (
     <div className="bg-gray-900 text-gray-200 min-h-screen flex flex-col">
-      {/* Navbar */}
-      <nav
+      {/* Navbar with Scroll Animation */}
+      <motion.nav
         className={`sticky top-0 w-full bg-gray-800 text-white shadow-lg z-50 transition-transform duration-300 ${
           scrolling ? "translate-y-[-100%]" : ""
         }`}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <div className="flex justify-between items-center max-w-6xl mx-auto px-6 py-4">
           <h1 className="text-2xl font-bold">Akash Singh Gusain</h1>
@@ -52,11 +71,16 @@ const Navbar = () => {
             </a>
           </div>
         </div>
-      </nav>
+      </motion.nav>
 
-      {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center h-screen text-center px-6 ">
-        <h1 className="text-5xl font-bold mb-4 ">
+      {/* Hero Section with Typewriter and Scroll Animations */}
+      <motion.section
+        className="flex flex-col items-center justify-center h-screen text-center px-6"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+      >
+        <h1 className="text-5xl font-bold mb-4">
           <p className="text-white">Hello, I&apos;m </p>
           <span className="text-yellow-400">
             <Typewriter
@@ -115,18 +139,40 @@ const Navbar = () => {
         >
           Resume <BsDownload />
         </a>
-      </section>
+      </motion.section>
 
-      {/* Sections */}
-      <section id="about">
+      {/* About Section with Scroll Animation */}
+      <motion.section
+        id="about"
+        ref={refAbout} // Attach the ref to the section
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: inViewAbout ? 1 : 0, y: inViewAbout ? 0 : 50 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+      >
         <About />
-      </section>
-      <section id="project">
+      </motion.section>
+
+      {/* Project Section with Scroll Animation */}
+      <motion.section
+        id="project"
+        ref={refProject} // Attach the ref to the section
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: inViewProject ? 1 : 0, y: inViewProject ? 0 : 50 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+      >
         <Project />
-      </section>
-      <section id="contact">
+      </motion.section>
+
+      {/* Contact Section with Scroll Animation */}
+      <motion.section
+        id="contact"
+        ref={refContact} // Attach the ref to the section
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: inViewContact ? 1 : 0, y: inViewContact ? 0 : 50 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+      >
         <Contact />
-      </section>
+      </motion.section>
     </div>
   );
 };
