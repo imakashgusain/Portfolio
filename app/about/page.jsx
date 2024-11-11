@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { BsFiletypeJava, BsFillCloudFill, BsGit, BsGithub } from "react-icons/bs";
 import { SiSpringboot, SiMongodb, SiDocker, SiJavascript, SiReact, SiLinux, SiPostman, SiIntellijidea, SiVisualstudio } from "react-icons/si";
 
@@ -6,11 +7,13 @@ function About() {
   return (
     <div id="about" className="flex flex-col items-center justify-center min-h-screen text-gray-100 bg-gray-900 max-w-6xl mx-auto p-8 space-y-12">
       <div className="flex flex-col md:flex-row items-center w-full gap-8">
-        <img
-          src="/akash.jpg"
-          alt="Akash Singh Gusain"
-          className="rounded-full w-48 h-48 object-cover shadow-lg border-4 border-white transition-transform transform hover:scale-105"
-        />
+      <Image
+  src="/akash.jpg"
+  alt="Akash Singh Gusain"
+  width={192} // Specify dimensions or use `layout="intrinsic"` for automatic sizing
+  height={192}
+  className="rounded-full object-cover shadow-lg border-4 border-white transition-transform transform hover:scale-105"
+/>
         <div className="text-left">
           <h1 className="text-5xl font-bold mb-4 text-yellow-400">About Me</h1>
           <p className="text-lg leading-relaxed mb-4">
