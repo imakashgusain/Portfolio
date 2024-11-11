@@ -4,27 +4,26 @@ import { SiSpringboot, SiMongodb, SiDocker, SiJavascript, SiReact, SiLinux, SiPo
 
 function About() {
   return (
-    <>
-      <div id="about" className="flex flex-col items-center justify-center min-h-screen text-gray-100 bg-gray-900 p-8">
-        <div className="flex flex-col md:flex-row items-center w-full max-w-5xl gap-8">
-          <img
-            src="/akash.jpg"
-            alt="Akash Singh Gusain"
-            className="rounded-full w-48 h-48 object-cover shadow-lg border-4 border-white transition-transform transform hover:scale-105"
-          />
-          <div className="text-left">
-            <h1 className="text-5xl font-bold mb-4 text-yellow-400">About Me</h1>
-            <p className="text-lg leading-relaxed mb-4">
-              I'm Akash, a software developer with nearly 3 years of experience in Java, Spring Boot, and databases. Skilled in backend systems, RESTful services, DevOps, and cloud technologies, I enjoy problem-solving, gaming, and staying on top of industry trends.
-            </p>
-            <a href="#contact" className="text-lg bg-yellow-400 px-6 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
-              Contact Me
-            </a>
-          </div>
+    <div id="about" className="flex flex-col items-center justify-center min-h-screen text-gray-100 bg-gray-900 max-w-6xl mx-auto p-8 space-y-12">
+      <div className="flex flex-col md:flex-row items-center w-full gap-8">
+        <img
+          src="/akash.jpg"
+          alt="Akash Singh Gusain"
+          className="rounded-full w-48 h-48 object-cover shadow-lg border-4 border-white transition-transform transform hover:scale-105"
+        />
+        <div className="text-left">
+          <h1 className="text-5xl font-bold mb-4 text-yellow-400">About Me</h1>
+          <p className="text-lg leading-relaxed mb-4">
+            I'm Akash, a software developer with nearly 3 years of experience in Java, Spring Boot, and databases. Skilled in backend systems, RESTful services, DevOps, and cloud technologies, I enjoy problem-solving, gaming, and staying on top of industry trends.
+          </p>
+          <a href="#contact" className="text-lg bg-yellow-400 px-6 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
+            Contact Me
+          </a>
         </div>
+      </div>
 
-        {/* Education Section */}
-        <div className="w-full max-w-5xl mt-12">
+      <div className="w-full space-y-12">
+        <div>
           <h2 className="text-4xl font-bold mb-4 text-yellow-400">Education</h2>
           <ul className="text-gray-300 space-y-2">
             <li>B.Tech in Computer Science, Dev Bhoomi Institute of Technology (2018-2022)</li>
@@ -33,8 +32,7 @@ function About() {
           </ul>
         </div>
 
-        {/* Work Experience Section */}
-        <div className="w-full max-w-5xl mt-12">
+        <div>
           <h2 className="text-4xl font-bold mb-4 text-yellow-400">Work Experience</h2>
           <ul className="text-gray-300 space-y-2">
             <li><b>Software Developer at Gemini Solutions</b> (2021 - Present)</li>
@@ -42,8 +40,7 @@ function About() {
           </ul>
         </div>
 
-        {/* Technologies Section */}
-        <div className="w-full max-w-5xl mt-12">
+        <div>
           <h2 className="text-4xl font-bold mb-4 text-yellow-400 text-center">Technologies I Use</h2>
           <div className="grid grid-cols-3 md:grid-cols-5 gap-6 text-center">
             {[
@@ -69,7 +66,7 @@ function About() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
