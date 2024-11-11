@@ -14,7 +14,7 @@ function About() {
         <div className="text-left">
           <h1 className="text-5xl font-bold mb-4 text-yellow-400">About Me</h1>
           <p className="text-lg leading-relaxed mb-4">
-            I'm Akash, a software developer with nearly 3 years of experience in Java, Spring Boot, and databases. Skilled in backend systems, RESTful services, DevOps, and cloud technologies, I enjoy problem-solving, gaming, and staying on top of industry trends.
+          I'm Akash, a passionate software developer with 3 years of experience working with Java, Spring Boot, and databases. My expertise lies in backend systems, RESTful services, and cloud technologies. I take pride in delivering high-quality work and continuously improving my skills. Outside of coding, I'm an avid problem-solver, enjoy gaming, writing blogs, and immersing myself in anime.
           </p>
           <a href="#contact" className="text-lg bg-yellow-400 px-6 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
             Contact Me
