@@ -1,3 +1,4 @@
+"use client"
 import { useState, useRef } from "react";
 
 export default function IconButton({ children, text, color, href, ...props }) {
@@ -5,9 +6,8 @@ export default function IconButton({ children, text, color, href, ...props }) {
   const ref = useRef(null);
 
   const handleClick = () => {
-    window.open(href, "_blank");  // Open in a new tab
+    window.open(href, "_blank"); // Open in a new tab
   };
-  
 
   return (
     <button
