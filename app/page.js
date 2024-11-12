@@ -92,7 +92,7 @@ const Navbar = () => {
                 ],
                 autoStart: true,
                 loop: true,
-                delay: 75,
+                delay: 80,
               }}
             />
           </span>

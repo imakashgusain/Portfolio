@@ -73,12 +73,12 @@ function Project() {
                 </span>
               ))}
             </div>
-            <a
+            {/* <a
               href={project.link}
               className="text-yellow-400 font-semibold hover:underline"
             >
               View Project
-            </a>
+            </a> */}
           </div>
         ))}
       </div>
