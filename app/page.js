@@ -132,13 +132,13 @@ const Navbar = () => {
           </IconButton>
         </div>
 
-        <a
+        {/* <a
           href="/resume.pdf"
           download
           className="bg-white text-black font-bold mb-4 px-6 py-2 rounded-full hover:bg-gray-400 flex items-center gap-2"
         >
           Resume <BsDownload />
-        </a>
+        </a> */}
       </motion.section>
 
       {/* About Section with Scroll Animation */}
