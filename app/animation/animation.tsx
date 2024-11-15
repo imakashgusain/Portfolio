@@ -1,9 +1,18 @@
 "use client";
+import React, { ReactNode } from "react";
 import { useState, useRef } from "react";
 
-export default function IconButton({ children, text, color, href, ...props }) {
+interface IconButtonProps {
+  children: ReactNode; // ReactNode includes all valid React children (JSX, strings, numbers, etc.)
+  text?: string;
+  color?: string;
+  href?: string;
+  [key: string]: any; // Allows for any additional props
+}
+
+export default function IconButton({ children, text, color, href, ...props }: IconButtonProps) {
   const [hovered, setHovered] = useState(false);
-  const ref = useRef(null);
+  const ref = useRef<HTMLSpanElement | null>(null);
 
   const handleClick = () => {
     window.open(href, "_blank"); // Open in a new tab

@@ -8,22 +8,22 @@ import {
   BsDownload,
 } from "react-icons/bs";
 import Typewriter from "typewriter-effect";
-import About from "./about/page";
-import Project from "./project/page";
-import Contact from "./contact/page";
+import About from "./about/about";
+import Project from "./project/project";
+import Contact from "./contact/contact";
 import React, { useState, useEffect, useRef, useContext } from "react";
-import IconButton from "./animation/page";
+import IconButton from "./animation/animation";
 import { motion } from "framer-motion"; // Import motion only (no need for useInView here)
 import { useInView } from "react-intersection-observer"; // Import the correct hook
 
 import { ScrollContext } from "./components/Providers/ScrollProvider";
-import { renderCanvas } from "./components/renderCanvas";
+import { renderCanvas, resizeCanvas, onMousemove } from "./components/renderCanvas";
 
 
 const Navbar = () => {
   const [scrolling, setScrolling] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   const { scrollY } = useContext(ScrollContext);
 
   let progress = 0;
