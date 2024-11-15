@@ -24,7 +24,7 @@ function About() {
   const experienceData = [
     {
       company: "Gemini Solutions Pvt Ltd",
-    
+
       positions: [
         {
           role: "Senior Software Engineer L1",
@@ -36,7 +36,12 @@ function About() {
           role: "Software Engineer L2",
           duration: "Apr 2023 - Mar 2024",
           location: "India · Hybrid",
-          skills: ["Microservices", "MongoDB", "Spring Security", "Spring Boot"],
+          skills: [
+            "Microservices",
+            "MongoDB",
+            "Spring Security",
+            "Spring Boot",
+          ],
         },
         {
           role: "Software Engineer L1",
@@ -164,18 +169,39 @@ function About() {
           </h2>
           <div className="grid grid-cols-3 md:grid-cols-3 gap-6 text-center">
             {[
-              { name: "Java", icon: <BsFiletypeJava className="text-orange-400" /> },
-              { name: "Spring Boot", icon: <SiSpringboot className="text-green-600" /> },
-              { name: "SQL", icon: <BsFillCloudFill className="text-blue-400" /> },
+              {
+                name: "Java",
+                icon: <BsFiletypeJava className="text-orange-400" />,
+              },
+              {
+                name: "Spring Boot",
+                icon: <SiSpringboot className="text-green-600" />,
+              },
+              {
+                name: "SQL",
+                icon: <BsFillCloudFill className="text-blue-400" />,
+              },
               { name: "NoSQL", icon: <SiMongodb className="text-green-600" /> },
               { name: "Docker", icon: <SiDocker className="text-blue-500" /> },
-              { name: "JavaScript", icon: <SiJavascript className="text-yellow-400" /> },
+              {
+                name: "JavaScript",
+                icon: <SiJavascript className="text-yellow-400" />,
+              },
               { name: "React", icon: <SiReact className="text-blue-600" /> },
               { name: "Git", icon: <BsGit className="text-orange-500" /> },
               { name: "GitHub", icon: <BsGithub className="text-black" /> },
-              { name: "Postman", icon: <SiPostman className="text-orange-500" /> },
-              { name: "IntelliJ", icon: <SiIntellijidea className="text-black" /> },
-              { name: "VSCode", icon: <SiVisualstudio className="text-blue-500" /> },
+              {
+                name: "Postman",
+                icon: <SiPostman className="text-orange-500" />,
+              },
+              {
+                name: "IntelliJ",
+                icon: <SiIntellijidea className="text-black" />,
+              },
+              {
+                name: "VSCode",
+                icon: <SiVisualstudio className="text-blue-500" />,
+              },
               { name: "Linux", icon: <SiLinux className="text-black" /> },
             ].map((tech, i) => (
               <div
