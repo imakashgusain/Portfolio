@@ -82,7 +82,7 @@ function About() {
       </div>
 
       {/* Main Content: Work Experience and Technologies */}
-      <div className="flex flex-col md:flex-row gap-12 w-full">
+      <div className="flex flex-col md:flex-row gap-12 w-full py-40">
         {/* Work Experience Timeline */}
         <div className="md:w-1/2">
           <h2 className="text-4xl font-bold mb-8 text-yellow-400">Work Experience</h2>
