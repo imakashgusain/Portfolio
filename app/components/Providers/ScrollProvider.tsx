@@ -2,6 +2,7 @@
 
 import { useLenis } from '@studio-freight/react-lenis';
 import { createContext, ReactNode, useState } from 'react';
+import React from "react";
 
 interface ScrollValue {
   scrollY: number;
