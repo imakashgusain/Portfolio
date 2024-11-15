@@ -24,7 +24,6 @@ function About() {
   const experienceData = [
     {
       company: "Gemini Solutions Pvt Ltd",
-      logo: "/gemini_logo.png", // Update with actual logo path
       positions: [
         {
           role: "Senior Software Engineer L1",
@@ -92,6 +91,7 @@ function About() {
           </a>
         </div>
       </div>
+
       {/* Hobbies Section */}
       <div className="w-full py-3">
         <h2 className="text-4xl font-bold mb-4 text-yellow-400 text-center">
@@ -135,24 +135,29 @@ function About() {
             Work Experience
           </h2>
           <div className="relative">
-            <div className="border-l-2 border-yellow-400 relative pl-8">
-              {experienceData[0].positions.map((position, index) => (
-                <div key={index} className="relative mb-12">
-                  <HiOutlineBriefcase className="absolute -left-5 top-1 text-yellow-400 text-xl" />
-                  <h3 className="text-2xl font-semibold text-yellow-400">
-                    {position.role}
-                  </h3>
-                  <p className="text-gray-300">{position.duration}</p>
-                  <p className="text-sm text-gray-400 mb-2">
-                    {position.location}
-                  </p>
-                  <p className="text-sm text-gray-100">
-                    <b>Skills:</b> {position.skills.join(" · ")}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+  <div className="border-l-2 border-yellow-400 relative pl-8">
+    {/* Left-Aligned and Larger Company Name */}
+    <h3 className="text-3xl font-semibold text-yellow-400 mb-4">
+      {experienceData[0].company}
+    </h3>
+    {experienceData[0].positions.map((position, index) => (
+      <div key={index} className="relative mb-4">
+        <HiOutlineBriefcase className="absolute -left-5 top-1 text-yellow-400 text-xl" />
+        <h4 className="text-xl font-semibold text-yellow-400">
+          {position.role}
+        </h4>
+        <p className="text-gray-300">{position.duration}</p>
+        <p className="text-sm text-gray-400 mb-2">
+          {position.location}
+        </p>
+        <p className="text-sm text-gray-100">
+          <b>Skills:</b> {position.skills.join(" · ")}
+        </p>
+      </div>
+    ))}
+  </div>
+</div>
+
         </div>
 
         {/* Technologies Section */}
