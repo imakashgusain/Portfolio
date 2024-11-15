@@ -1,4 +1,5 @@
 "use client";
+
 import {
   BsGithub,
   BsLinkedin,
@@ -10,14 +11,28 @@ import Typewriter from "typewriter-effect";
 import About from "./about/page";
 import Project from "./project/page";
 import Contact from "./contact/page";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import IconButton from "./animation/page";
 import { motion } from "framer-motion"; // Import motion only (no need for useInView here)
 import { useInView } from "react-intersection-observer"; // Import the correct hook
 
+import { ScrollContext } from "./components/Providers/ScrollProvider";
+import { renderCanvas } from "./components/renderCanvas";
+
+
 const Navbar = () => {
   const [scrolling, setScrolling] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const ref = useRef(null);
+  const { scrollY } = useContext(ScrollContext);
+
+  let progress = 0;
+  const { current: elContainer } = ref;
+
+  if (elContainer) {
+    progress = Math.min(1, scrollY / elContainer.clientHeight);
+  }
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,8 +58,32 @@ const Navbar = () => {
     threshold: 0.2,
   });
 
+
+  
+ 
+  useEffect(() => {
+    renderCanvas();
+  
+    return () => {
+      // Clean up event listeners to avoid memory leaks
+      window.removeEventListener('resize', resizeCanvas);
+      document.removeEventListener('mousemove', onMousemove);
+      document.removeEventListener('touchstart', onMousemove);
+    };
+  }, []);
+
+  
+
+
+
   return (
     <div className="bg-gray-900 text-gray-200 min-h-screen flex flex-col">
+      <canvas
+  className="bg-skin-base pointer-events-none absolute top-0 left-0 w-full h-full"
+  id="canvas"
+></canvas>
+
+      {/* <Hero > */}
       {/* Navbar with Scroll Animation */}
       <motion.nav
         className={`sticky top-0 w-full bg-gray-800 text-white shadow-lg z-50 transition-transform duration-300 ${
@@ -72,6 +111,7 @@ const Navbar = () => {
           </div>
         </div>
       </motion.nav>
+      {/* </Hero> */}
 
       {/* Hero Section with Typewriter and Scroll Animations */}
       <motion.section
@@ -173,8 +213,11 @@ const Navbar = () => {
       >
         <Contact />
       </motion.section>
+    
+
     </div>
   );
 };
+
 
 export default Navbar;
