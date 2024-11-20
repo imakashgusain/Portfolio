@@ -17,8 +17,12 @@ import { motion } from "framer-motion"; // Import motion only (no need for useIn
 import { useInView } from "react-intersection-observer"; // Import the correct hook
 
 import { ScrollContext } from "./components/Providers/ScrollProvider";
-import { renderCanvas, resizeCanvas, onMousemove } from "./components/renderCanvas";
-
+import {
+  renderCanvas,
+  resizeCanvas,
+  onMousemove,
+} from "./components/renderCanvas";
+import Blog from "./blog/blog";
 
 const Navbar = () => {
   const [scrolling, setScrolling] = useState(false);
@@ -32,7 +36,6 @@ const Navbar = () => {
   if (elContainer) {
     progress = Math.min(1, scrollY / elContainer.clientHeight);
   }
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,30 +61,28 @@ const Navbar = () => {
     threshold: 0.2,
   });
 
+  const { ref: refBlog, inView: inViewBlog } = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
 
-  
- 
   useEffect(() => {
     renderCanvas();
-  
+
     return () => {
       // Clean up event listeners to avoid memory leaks
-      window.removeEventListener('resize', resizeCanvas);
-      document.removeEventListener('mousemove', onMousemove);
-      document.removeEventListener('touchstart', onMousemove);
+      window.removeEventListener("resize", resizeCanvas);
+      document.removeEventListener("mousemove", onMousemove);
+      document.removeEventListener("touchstart", onMousemove);
     };
   }, []);
-
-  
-
-
 
   return (
     <div className="bg-gray-900 text-gray-200 min-h-screen flex flex-col">
       <canvas
-  className="bg-skin-base pointer-events-none absolute top-0 left-0 w-full h-full"
-  id="canvas"
-></canvas>
+        className="bg-skin-base pointer-events-none absolute top-0 left-0 w-full h-full"
+        id="canvas"
+      ></canvas>
 
       {/* <Hero > */}
       {/* Navbar with Scroll Animation */}
@@ -104,6 +105,9 @@ const Navbar = () => {
             </a>
             <a href="#project" className="hover:text-blue-400">
               Projects
+            </a>
+            <a href="#blog" className="hover:text-blue-400">
+              Blog
             </a>
             <a href="#contact" className="hover:text-blue-400">
               Contact
@@ -203,6 +207,16 @@ const Navbar = () => {
         <Project />
       </motion.section>
 
+      <motion.section
+        id="blog"
+        ref={refBlog}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: inViewBlog ? 1 : 0, y: inViewBlog ? 0 : 50 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+      >
+        <Blog />
+      </motion.section>
+
       {/* Contact Section with Scroll Animation */}
       <motion.section
         id="contact"
@@ -213,11 +227,8 @@ const Navbar = () => {
       >
         <Contact />
       </motion.section>
-    
-
     </div>
   );
 };
-
 
 export default Navbar;
