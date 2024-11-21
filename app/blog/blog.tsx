@@ -16,6 +16,14 @@ const Blog = () => {
         "Upgrading to new versions of frameworks like Spring Boot can be challenging, but OpenRewrite makes it easier. In this guide, we’ll go over how you can migrate to Spring Boot 3.2 using OpenRewrite recipes — ready-made tools that handle most of the heavy lifting for you.",
       link: "https://medium.com/@akashgusain57/effortless-migration-to-spring-boot-3-2-with-openrewrite-a504c9c9a798",
     },
+
+    {
+      title:
+        "From Backend to Frontend: How I Built My Portfolio as a Backend Developer (Thanks to GPT!)",
+      description:
+        "As a backend developer, building a portfolio website felt like stepping into unfamiliar waters. I’ve always been more comfortable with APIs and servers than designing user interfaces, but I wanted to take on the challenge—not just to showcase my skills but to learn something new. With AI tools like ChatGPT, that leap felt less daunting and a lot more exciting.",
+      link: "https://medium.com/@akashgusain57/from-backend-to-frontend-how-i-built-my-portfolio-as-a-backend-developer-thanks-to-gpt-abc94e88c772",
+    },
   ];
 
   return (
