@@ -131,7 +131,7 @@ const Navbar = () => {
               options={{
                 strings: [
                   "Akash Singh Gusain",
-                  "Full-Stack Developer",
+                  "BackEnd Developer",
                   "Tech Enthusiast",
                 ],
                 autoStart: true,
