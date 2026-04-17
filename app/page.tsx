@@ -17,11 +17,12 @@ import IconButton from "./animation/animation";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ScrollContext } from "./components/Providers/ScrollProvider";
-import { renderCanvas, resizeCanvas, onMousemove } from "./components/renderCanvas";
 
 const Home = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [year, setYear] = useState<number | null>(null);
   const navRef = useRef<HTMLDivElement | null>(null);
   const { scrollY } = useContext(ScrollContext);
 
@@ -31,6 +32,7 @@ const Home = () => {
       setLastScrollY(window.scrollY);
     };
 
+    setYear(new Date().getFullYear());
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
@@ -39,14 +41,6 @@ const Home = () => {
   const { ref: refProject, inView: inViewProject } = useInView({ triggerOnce: false, threshold: 0.2 });
   const { ref: refContact, inView: inViewContact } = useInView({ triggerOnce: false, threshold: 0.2 });
   const { ref: refBlog, inView: inViewBlog } = useInView({ triggerOnce: false, threshold: 0.2 });
-
-  useEffect(() => {
-    return () => {
-      window.removeEventListener("resize", resizeCanvas);
-      document.removeEventListener("mousemove", onMousemove);
-      document.removeEventListener("touchstart", onMousemove);
-    };
-  }, []);
 
   return (
     <div className="relative bg-transparent text-slate-100">
@@ -80,11 +74,51 @@ const Home = () => {
               Contact
             </a>
           </div>
-          <a href="/resume.pdf" download className="btn-secondary hidden sm:inline-flex">
-            Resume
-          </a>
+          <div className="flex items-center gap-3">
+            <a href="/resume.pdf" download className="btn-secondary hidden sm:inline-flex">
+              Resume
+            </a>
+            <button
+              type="button"
+              onClick={() => setMenuOpen(true)}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-700/70 bg-slate-900/90 text-slate-200 transition hover:border-amber-400 hover:text-amber-300 lg:hidden"
+              aria-label="Open navigation menu"
+            >
+              <span className="text-xl">☰</span>
+            </button>
+          </div>
         </div>
       </motion.nav>
+
+      {menuOpen ? (
+        <div className="fixed inset-0 z-50 bg-slate-950/95 px-6 pt-20 text-center backdrop-blur-xl sm:px-8">
+          <button
+            type="button"
+            onClick={() => setMenuOpen(false)}
+            className="absolute right-6 top-6 inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-700/70 bg-slate-900/90 text-slate-200 transition hover:border-amber-400 hover:text-amber-300"
+            aria-label="Close navigation menu"
+          >
+            ✕
+          </button>
+          <nav className="mt-12 space-y-6 text-left text-2xl font-semibold text-white">
+            {[
+              { label: "About", href: "#about" },
+              { label: "Projects", href: "#project" },
+              { label: "Blog", href: "#blog" },
+              { label: "Contact", href: "#contact" },
+            ].map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                className="block rounded-3xl border border-slate-700/70 bg-slate-900/80 px-6 py-4 transition hover:border-amber-400 hover:text-amber-300"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+      ) : null}
 
       <main className="relative z-10">
         <section id="home" className="relative py-24 sm:py-32">
@@ -113,7 +147,31 @@ const Home = () => {
                 </a>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-3">
+              <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                {[
+                  {
+                    title: "API-first delivery",
+                    detail: "Clean contracts and reliable endpoint design for modern products.",
+                  },
+                  {
+                    title: "Operational readiness",
+                    detail: "Infrastructure-aware development with observability baked in.",
+                  },
+                  {
+                    title: "Stable execution",
+                    detail: "Enterprise-grade code and delivery that minimize friction.",
+                  },
+                ].map((item) => (
+                  <div key={item.title} className="glass-card p-5">
+                    <p className="text-sm uppercase tracking-[0.3em] text-slate-400">
+                      {item.title}
+                    </p>
+                    <p className="mt-3 text-sm leading-6 text-slate-300">{item.detail}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 grid gap-4 sm:grid-cols-3">
                 {[
                   { label: "Experience", value: "4+ years" },
                   { label: "Focus", value: "Backend & APIs" },
@@ -217,6 +275,26 @@ const Home = () => {
           </motion.section>
         </div>
       </main>
+
+      <footer className="border-t border-slate-800 bg-slate-950/90 py-12 text-slate-300">
+        <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+          <div>
+            <p className="text-sm uppercase tracking-[0.35em] text-violet-300">Let&apos;s connect</p>
+            <p className="mt-3 max-w-xl text-sm leading-7 text-slate-400">
+              If you&apos;re looking for reliable backend engineering, scalable APIs, or cloud-native systems, I&apos;m ready to help.
+            </p>
+          </div>
+          <a
+            href="mailto:akashgusain57@gmail.com"
+            className="btn-primary inline-flex w-full justify-center py-4 sm:w-auto"
+          >
+            Start a conversation
+          </a>
+        </div>
+        <div className="mx-auto mt-10 max-w-6xl px-6 text-center text-xs text-slate-600 sm:px-8">
+          © {year ? `${year} ` : ""}Akash Singh Gusain. Built for performance, clarity, and a polished developer experience.
+        </div>
+      </footer>
     </div>
   );
 };
