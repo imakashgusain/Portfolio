@@ -6,83 +6,89 @@ function Project() {
       id: 1,
       title: "Micro Finance App",
       description:
-        "Microservices-based loan application for handset device financing. Contributed to developing key business features, including REST API creation and reporting via JASPER reports.",
-      techStack: ["Spring-Boot", "Java", "Thymeleaf"],
+        "Microservices-based loan application for handset device financing. Contributed to building REST APIs, reporting workflows, and secure transaction flows.",
+      techStack: ["Spring Boot", "Java", "Thymeleaf"],
       link: "#",
     },
     {
       id: 2,
-      title: "Commodities based Fintech",
+      title: "Commodities Fintech",
       description:
-        "Worked on an application that provides end-to-end software to capture, analyze, and act upon voice and electronic transaction data in FICC markets.",
-      techStack: ["Spring-Boot", "gRPC"],
+        "End-to-end software for capture, analysis, and execution of electronic transaction data in FICC markets.",
+      techStack: ["Spring Boot", "gRPC"],
       link: "#",
     },
     {
       id: 3,
-      title: "PINT",
+      title: "PINT Monitoring Platform",
       description:
-        "Real-time pub-sub-based platform used to monitor jobs from diverse sources like Autosys and Oracle.",
-      techStack: ["Spring-Boot", "AMPS", "Oracle", "Autosys"],
+        "Real-time pub/sub platform for tracking jobs across Autosys, Oracle, and enterprise workflows.",
+      techStack: ["Spring Boot", "AMPS", "Oracle", "Autosys"],
       link: "#",
     },
     {
       id: 4,
-      title: "PAYROLL",
+      title: "Payroll Management System",
       description:
-        "Payroll management system for managing all finances of employees. Developed key business features, RESTful APIs, and covered Unit and Integration tests.",
-      techStack: ["Spring-Boot", "REST"],
+        "Employee finance automation with robust REST APIs and extensive unit and integration coverage.",
+      techStack: ["Spring Boot", "REST"],
       link: "#",
     },
     {
       id: 5,
-      title: "JEWEL",
+      title: "JEWEL QA Tool",
       description:
-        "QA tool for creating, managing, and running test cases. Contributed to migration from Monolithic to Microservices Architecture.",
-      techStack: ["Spring-Boot", "MicroService"],
+        "Quality assurance platform for test management and microservice migration support.",
+      techStack: ["Spring Boot", "Microservices"],
       link: "#",
     },
   ];
 
   return (
-    <div
-      id="project"
-      className="min-h-screen text-gray-100 bg-gray-900 max-w-6xl mx-auto px-8 space-y-12"
-    >
-      <h1 className="text-5xl font-bold text-center mb-12 text-yellow-400">
-        Projects
-      </h1>
+    <section id="project" className="mx-auto max-w-6xl px-6 py-24 sm:px-8">
+      <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div>
+          <div className="card-accent mb-4" />
+          <p className="text-sm uppercase tracking-[0.35em] text-violet-300">Projects</p>
+          <h2 className="section-heading">Selected work with scale, reliability, and strong delivery.</h2>
+        </div>
+        <span className="skill-pill">5+ professional projects</span>
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            className="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+        {projects.map((project) => (
+          <article
+            key={project.id}
+            className="glass-card overflow-hidden border-slate-700/80 p-8 transition duration-300 hover:-translate-y-1 hover:shadow-2xl"
           >
-            <h2 className="text-3xl font-semibold mb-4 text-white">
-              {project.title}
-            </h2>
-            <p className="text-gray-300 mb-4">{project.description}</p>
-            <div className="flex flex-wrap gap-2 mb-4">
-              {project.techStack.map((tech, i) => (
-                <span
-                  key={i}
-                  className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm"
-                >
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <p className="text-sm uppercase tracking-[0.35em] text-violet-300">Project</p>
+                <h3 className="mt-4 text-2xl font-semibold text-white">{project.title}</h3>
+              </div>
+              <span className="skill-pill">Case study</span>
+            </div>
+
+            <p className="mt-6 text-slate-300">{project.description}</p>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              {project.techStack.map((tech, index) => (
+                <span key={index} className="skill-pill">
                   {tech}
                 </span>
               ))}
             </div>
-            {/* <a
+
+            <a
               href={project.link}
-              className="text-yellow-400 font-semibold hover:underline"
+              className="btn-secondary mt-8 inline-flex"
             >
               View Project
-            </a> */}
-          </div>
+            </a>
+          </article>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

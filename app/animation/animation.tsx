@@ -15,27 +15,24 @@ export default function IconButton({ children, text, color, href, ...props }: Ic
   const ref = useRef<HTMLSpanElement | null>(null);
 
   const handleClick = () => {
-    window.open(href, "_blank"); // Open in a new tab
+    if (href) window.open(href, "_blank");
   };
 
   return (
     <button
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      type="button"
       onClick={handleClick}
-      role="link"
-      className={`flex p-2 items-center rounded-lg text-white ${color}`}
+      className={`group inline-flex items-center gap-3 rounded-full px-4 py-3 text-sm font-medium transition-all duration-300 ${color}`}
       {...props}
     >
-      {children}
-      <div
-        style={{ width: hovered ? ref.current?.offsetWidth || 0 : 0 }}
-        className="overflow-x-hidden transition-all duration-300 ease-out"
-      >
-        <span ref={ref} className="px-1.5">
+      <span className="text-lg transition-transform duration-300 group-hover:-translate-y-0.5">
+        {children}
+      </span>
+      {text ? (
+        <span className="opacity-0 transition-opacity duration-300 group-hover:opacity-100">
           {text}
         </span>
-      </div>
+      ) : null}
     </button>
   );
 }
