@@ -25,6 +25,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body
+        suppressHydrationWarning
         className={`${inter.variable} ${jetbrains.variable} font-sans antialiased bg-slate-950 text-slate-100`}
       >
         <ScrollProvider>{children}</ScrollProvider>

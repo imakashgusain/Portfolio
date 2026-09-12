@@ -88,7 +88,7 @@ function About() {
           <div className="glass-card overflow-hidden p-6">
             <div className="relative mx-auto flex h-72 w-72 items-center justify-center overflow-hidden rounded-[1.75rem] border border-slate-700/70 bg-slate-950/90 shadow-2xl shadow-black/20">
               <Image
-                src="/akash.jpg"
+                src="/akash.png"
                 alt="Akash Singh Gusain"
                 width={280}
                 height={280}
