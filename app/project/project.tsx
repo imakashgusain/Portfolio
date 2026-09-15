@@ -87,7 +87,10 @@ function Project() {
               ))}
             </div>
 
-            <a href={project.link} className="btn-secondary mt-8 inline-flex">
+            <a
+              href={project.link}
+              className="btn-secondary mt-8 inline-flex"
+            >
               View project
             </a>
           </article>

@@ -1,18 +1,14 @@
 import "./globals.css";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { ScrollProvider } from "./components/Providers/ScrollProvider";
 
-const inter = Inter({
-  subsets: ["latin"],
+const geist = localFont({
+  src: "./fonts/GeistVF.woff",
   variable: "--font-sans",
-  display: "swap",
-  weight: ["400", "500", "600", "700", "800"],
 });
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
   variable: "--font-mono",
-  display: "swap",
-  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata = {
@@ -26,7 +22,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className="scroll-smooth">
       <body
         suppressHydrationWarning
-        className={`${inter.variable} ${jetbrains.variable} font-sans antialiased bg-slate-950 text-slate-100`}
+        className={`${geist.variable} ${geistMono.variable} font-sans antialiased bg-slate-950 text-slate-100`}
       >
         <ScrollProvider>{children}</ScrollProvider>
       </body>
