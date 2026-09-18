@@ -4,27 +4,25 @@ import {
   BsGithub,
   BsLinkedin,
   BsStackOverflow,
-  BsInstagram,
   BsDownload,
 } from "react-icons/bs";
-import Typewriter from "typewriter-effect";
 import About from "./about/about";
 import Project from "./project/project";
 import Contact from "./contact/contact";
 import Blog from "./blog/blog";
-import React, { useState, useEffect, useRef, useContext } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import IconButton from "./animation/animation";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { ScrollContext } from "./components/Providers/ScrollProvider";
+import { FiArrowDownRight, FiArrowUpRight, FiMail, FiSend } from "react-icons/fi";
 
 const Home = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [year, setYear] = useState<number | null>(null);
+  const [heroTilt, setHeroTilt] = useState({ x: 0, y: 0 });
   const navRef = useRef<HTMLDivElement | null>(null);
-  const { scrollY } = useContext(ScrollContext);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -121,49 +119,39 @@ const Home = () => {
       ) : null}
 
       <main className="relative z-10">
-        <section id="home" className="relative py-24 sm:py-32">
+        <section id="home" className="relative overflow-hidden py-24 sm:py-32">
           <div className="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-[1.6fr_1fr] lg:items-center lg:px-8">
             <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 rounded-full bg-violet-500/15 px-4 py-2 text-sm font-medium text-violet-200 ring-1 ring-violet-500/30">
-                Backend engineer · Cloud-native systems · Microservices
+              <div className="status-pill">
+                <span className="status-dot" /> Available for selected opportunities
               </div>
               <div className="space-y-6">
-                <h1 className="text-5xl font-semibold leading-tight tracking-tight text-white sm:text-6xl">
-                  Crafting reliable backend systems for modern financial products.
+                <h1 className="hero-heading">
+                  Building backend systems that <span>move business forward.</span>
                 </h1>
                 <p className="section-subtitle">
-                  I’m Akash, a backend developer with a strong focus on Spring Boot, distributed systems,
-                  APIs, and cloud-native architecture. I build clean, scalable services that empower teams
-                  and elevate business outcomes.
+                  I&apos;m Akash — a backend engineer who turns complex financial and enterprise workflows into fast,
+                  secure, maintainable services.
                 </p>
               </div>
 
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-                <a href="/resume.pdf" download className="btn-primary">
-                  Download Resume
+                <a href="#contact" className="btn-primary gap-2">
+                  Let&apos;s work together <FiArrowUpRight />
                 </a>
-                <a href="#project" className="btn-secondary">
-                  See Projects
+                <a href="#project" className="btn-secondary gap-2">
+                  Explore my work <FiArrowDownRight />
                 </a>
               </div>
 
               <div className="mt-8 grid gap-4 sm:grid-cols-3">
                 {[
-                  {
-                    title: "API-first delivery",
-                    detail: "Clean contracts and reliable endpoint design for modern products.",
-                  },
-                  {
-                    title: "Operational readiness",
-                    detail: "Infrastructure-aware development with observability baked in.",
-                  },
-                  {
-                    title: "Stable execution",
-                    detail: "Enterprise-grade code and delivery that minimize friction.",
-                  },
+                  { title: "4+ years", detail: "shipping enterprise-grade backend systems" },
+                  { title: "Java + Spring", detail: "from clean APIs to resilient microservices" },
+                  { title: "India · Remote", detail: "ready to collaborate across teams and time zones" },
                 ].map((item) => (
                   <div key={item.title} className="glass-card p-5">
-                    <p className="text-sm uppercase tracking-[0.3em] text-slate-400">
+                    <p className="text-sm font-semibold text-white">
                       {item.title}
                     </p>
                     <p className="mt-3 text-sm leading-6 text-slate-300">{item.detail}</p>
@@ -171,35 +159,38 @@ const Home = () => {
                 ))}
               </div>
 
-              <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                {[
-                  { label: "Experience", value: "4+ years" },
-                  { label: "Focus", value: "Backend & APIs" },
-                  { label: "Location", value: "Dehradun, India" },
-                ].map((item) => (
-                  <div key={item.label} className="glass-card p-5">
-                    <p className="text-sm uppercase tracking-[0.3em] text-slate-400">
-                      {item.label}
-                    </p>
-                    <p className="mt-3 text-2xl font-semibold text-white">{item.value}</p>
-                  </div>
-                ))}
-              </div>
             </div>
 
-            <aside className="glass-card border-slate-700/80 p-8 shadow-2xl shadow-black/20">
+            <aside
+              className="hero-console"
+              onPointerMove={(event) => {
+                const bounds = event.currentTarget.getBoundingClientRect();
+                setHeroTilt({
+                  x: -((event.clientY - bounds.top) / bounds.height - 0.5) * 10,
+                  y: ((event.clientX - bounds.left) / bounds.width - 0.5) * 10,
+                });
+              }}
+              onPointerLeave={() => setHeroTilt({ x: 0, y: 0 })}
+              style={{ transform: `perspective(1200px) rotateX(${heroTilt.x}deg) rotateY(${heroTilt.y}deg)` }}
+            >
+              <div className="orbital-scene" aria-hidden="true">
+                <span className="orbital-core" />
+                <span className="orbit orbit-one" /><span className="orbit orbit-two" /><span className="orbit orbit-three" />
+                <span className="orbital-node node-one" /><span className="orbital-node node-two" /><span className="orbital-node node-three" />
+              </div>
               <div className="flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Featured links</p>
-                  <h2 className="mt-3 text-3xl font-semibold text-white">Connect</h2>
+                  <p className="text-sm uppercase tracking-[0.3em] text-violet-200">System design</p>
+                  <h2 className="mt-3 text-3xl font-semibold text-white">Engineered to scale.</h2>
                 </div>
                 <div className="rounded-3xl bg-slate-900/80 p-4 text-slate-200 shadow-inner shadow-black/20">
-                  <p className="text-xs uppercase tracking-[0.35em] text-slate-500">Opportunities</p>
-                  <p className="mt-2 text-xl font-semibold text-amber-400">Open</p>
+                  <p className="text-xs uppercase tracking-[0.35em] text-slate-500">Status</p>
+                  <p className="mt-2 text-xl font-semibold text-emerald-400">Available</p>
                 </div>
               </div>
 
-              <div className="mt-8 grid gap-4">
+              <p className="mt-6 max-w-sm text-sm leading-7 text-slate-300">Clean contracts, observable services, and deliberate engineering decisions — from first endpoint to production.</p>
+              <div className="mt-8 grid gap-3">
                 <IconButton
                   text="GitHub"
                   color="bg-slate-800 hover:bg-slate-700 text-white"
@@ -229,6 +220,7 @@ const Home = () => {
                   <BsDownload className="text-xl" />
                 </IconButton>
               </div>
+              <a href="mailto:akashgusain57@gmail.com" className="btn-primary mt-6 w-full gap-2"><FiSend /> Start a conversation</a>
             </aside>
           </div>
         </section>
