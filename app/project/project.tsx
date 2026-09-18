@@ -8,8 +8,7 @@ function Project() {
       description:
         "Microservices-based loan application for handset device financing. Contributed to REST API creation, reporting workflows, and secure transaction handling.",
       techStack: ["Spring Boot", "Java", "Thymeleaf"],
-      role: "API design",
-      link: "#",
+      role: "Skills applied",
     },
     {
       id: 2,
@@ -17,8 +16,7 @@ function Project() {
       description:
         "End-to-end system for capturing and analyzing FICC market data with low-latency processing and modern service orchestration.",
       techStack: ["Spring Boot", "gRPC"],
-      role: "Data pipeline",
-      link: "#",
+      role: "Skills applied",
     },
     {
       id: 3,
@@ -26,8 +24,7 @@ function Project() {
       description:
         "A real-time pub/sub platform for monitoring job status across enterprise schedulers and databases.",
       techStack: ["Spring Boot", "AMPS", "Oracle", "Autosys"],
-      role: "Monitoring",
-      link: "#",
+      role: "Skills applied",
     },
     {
       id: 4,
@@ -35,8 +32,7 @@ function Project() {
       description:
         "Payroll automation platform built with RESTful services, authentication, and robust accounting workflows.",
       techStack: ["Spring Boot", "REST"],
-      role: "Automation",
-      link: "#",
+      role: "Skills applied",
     },
     {
       id: 5,
@@ -44,8 +40,7 @@ function Project() {
       description:
         "Test management and migration support system for QA teams moving from monoliths to distributed services.",
       techStack: ["Spring Boot", "Microservices"],
-      role: "QA tooling",
-      link: "#",
+      role: "Skills applied",
     },
   ];
 
@@ -55,12 +50,12 @@ function Project() {
         <div>
           <div className="card-accent mb-4" />
           <p className="text-sm uppercase tracking-[0.35em] text-violet-300">Projects</p>
-          <h2 className="section-heading">Projects that emphasize stability, clarity, and impact.</h2>
+          <h2 className="section-heading">Skills demonstrated through client work.</h2>
           <p className="section-subtitle mt-4 max-w-2xl">
-            A selection of work that highlights backend architecture, integration reliability, and scalable delivery for enterprise systems.
+            These are representative client projects delivered during my time at the organization. The source code and working demos are not public; the technologies below reflect the skills I used in production.
           </p>
         </div>
-        <span className="skill-pill">5+ professional projects</span>
+        <span className="skill-pill">Client projects - Skills only</span>
       </div>
 
       <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -74,7 +69,7 @@ function Project() {
                 <p className="text-xs uppercase tracking-[0.35em] text-slate-400">{project.role}</p>
                 <h3 className="mt-3 text-2xl font-semibold text-white">{project.title}</h3>
               </div>
-              <span className="skill-pill bg-slate-900/90 text-slate-200">Key work</span>
+              <span className="skill-pill bg-slate-900/90 text-slate-200">Client work</span>
             </div>
 
             <p className="mt-6 text-slate-300 leading-7">{project.description}</p>
@@ -86,11 +81,6 @@ function Project() {
                 </span>
               ))}
             </div>
-
-            <a href={project.link} className="btn-secondary mt-8 inline-flex">
-
-              View project
-            </a>
           </article>
         ))}
       </div>
